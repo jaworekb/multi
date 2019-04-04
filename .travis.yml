@@ -13,7 +13,7 @@ after_success:
   - docker build -t jaworek/multi-nginx ./nginx
   - docker build -t jaworek/multi-server ./server
   - docker build -t jaworek/multi-worker ./worker
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker login -u "$DOCKER_ID" -p "$DOCKER_PASSWORD"
   - docker push jaworek/multi-client
   - docker push jaworek/multi-nginx
   - docker push jaworek/multi-server
