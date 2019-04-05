@@ -23,9 +23,9 @@
       "memory": 128
     },
     {
-      "name": "multi",
+      "name": "nginx",
       "image": "jaworek/multi-nginx",
-      "hostname": "multi",
+      "hostname": "nginx",
       "essential": true,
       "portMappings": [
         {
