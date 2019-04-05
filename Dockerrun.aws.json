@@ -4,28 +4,28 @@
     {
       "name": "client",
       "image": "jaworek/multi-client",
-      "host": "client",
+      "hostname": "client",
       "essential": false,
       "memory": 128
     },
     {
       "name": "server",
       "image": "jaworek/multi-server",
-      "host": "api",
+      "hostname": "api",
       "essential": false,
       "memory": 128
     },
     {
       "name": "worker",
       "image": "jaworek/multi-worker",
-      "host": "worker",
+      "hostname": "worker",
       "essential": false,
       "memory": 128
     },
     {
       "name": "multi",
       "image": "jaworek/multi-nginx",
-      "host": "nginx",
+      "hostname": "multi",
       "essential": true,
       "portMappings": [
         {
@@ -33,10 +33,7 @@
           "containerPort": 80
         }
       ],
-      "links": [
-        "client",
-        "server"
-      ],
+      "links": ["client", "server"],
       "memory": 128
     }
   ]
