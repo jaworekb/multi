@@ -1,23 +1,26 @@
 {
-  "AWSEBDDockerrunVersion": 2,
+  "AWSEBDockerrunVersion": 2,
   "containerDefinitions": [
     {
       "name": "client",
       "image": "jaworek/multi-client",
       "host": "client",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "server",
       "image": "jaworek/multi-server",
       "host": "api",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "worker",
       "image": "jaworek/multi-worker",
       "host": "worker",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "multi",
@@ -33,7 +36,8 @@
       "links": [
         "client",
         "server"
-      ]
+      ],
+      "memory": 128
     }
   ]
 }
