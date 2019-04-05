@@ -1,0 +1,39 @@
+{
+  "AWSEBDDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "jaworek/multi-client",
+      "host": "client",
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image": "jaworek/multi-server",
+      "host": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "jaworek/multi-worker",
+      "host": "worker",
+      "essential": false
+    },
+    {
+      "name": "multi",
+      "image": "jaworek/multi-nginx",
+      "host": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": [
+        "client",
+        "server"
+      ]
+    }
+  ]
+}
